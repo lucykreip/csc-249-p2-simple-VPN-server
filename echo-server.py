@@ -13,7 +13,7 @@ args = parser.parse_args()
 SERVER_IP = args.server_IP  # Address to listen on
 SERVER_PORT = args.server_port  # Port to listen on (non-privileged ports are > 1023)
 
-print("server starting - listening for connections at IP", SERVER_IP, "and port", SERVER_PORT)
+print("\nserver starting - listening for connections at IP", SERVER_IP, "and port", SERVER_PORT)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((SERVER_IP, SERVER_PORT))
     s.listen()
@@ -28,4 +28,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(f"echoing '{data!r}' back to client")
             conn.sendall(data)
 
-print("server is done!")
+print(f"server is done!\n")
